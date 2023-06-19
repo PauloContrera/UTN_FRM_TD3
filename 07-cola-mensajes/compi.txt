@@ -1,0 +1,57 @@
+PROCESOS
+#include <sys/types.h>                 //biblioteca en la que definido el tipo pid_t #include <unistd.h>                      //biblioteca en la que definida fork
+#include <sys/wait.h>                  //donde se define wait FUNCION
+pid_t fork(void); fork devuelve:
+●   Al padre el ID de proceso hijo creado ●   Al hijo 0
+●   -1 en caso de error
+Si hacemos varios forks sin distintguir si es hijo o padre, la cantidad de final de procesos es 2nro de forks Para ver los padres e hijos dentro de linux usamos PSTREE
+PID
+pid_t getpid(void);                        // getpid() nos devuelve el pid del proceso actual
+pid_t getppid(void);                      // getppid() nos devuelve el pid del proceso padre (en huerfano es =1) EJEMPLO: printf (“soy el pid: %d y mi papa es: %d\n",getpid(),getppid());
+TERMINARvoid exit(int status);                     //devuelve el estado en el que finalizó al padre si realiza un wait ESPERAR
+pid_t wait(int *status);                //Devuelve el ID del proceso hijo terminado o -1 en caso de error CAMBIAR PROGRAMA
+execve(pathname, argv, envp)   // carga un nuevo programa (nombre de ruta, con la lista de argumentos argv y lista de entornos envp) en la memoria de un proceso.
+int execl(const char *pathname, const char *arg, .../* , (char *) NULL */); // No devuelve nada en caso de éxito y -1 en caso de error
+EJEMPLO: execl("/bin/ls", "ls", "-l", NULL); SEÑALES (kill -l)
+#include <signal.h> COMANDOS: kill –SIGXXX PID
+A. Señales tratadas por defecto (SIGN_DFL)
+B. Señales ignoradas (SIG_IGN)
+C. Manejador
+FUNCIÓN SIGNAL
+void ( *signal(int sig, void (*handler)(int))) (int); // sig: señal a manejar, *handler direccion de la función manejador EJEMPLO: signal (SIGINT, manejador)     //En vez de manejador puede ir SIGN_DFL o SIG_ING
+FUNCION MANEJADOR
+void controlador (int); { ….... } signal (sig, &función) FUNCION DE IPC
+//int con el número de señal.
+//recibe una señal y define la función que la atiende
+int kill(pid_t pid, int sig);                            // Enviar una señal a un proceso. Pid: identificador del proceso, Sig:
+tipo de señal a enviar. Devuelve 0 si tuvo éxito, o -1 cuando hay error
+pid > 0 señal enviada al proceso con ese pid>0
+pid = 0, Se envía la señal a todos los procesos del mismo grupo que el proceso emisor
+pid < -1, la señal se envía a todos los procesos en el grupo de procesos cuyo ID es igual al valor absoluto de pid.
+pid = 1 la señal se envía a todos los procesos a los cuales tiene permiso de enviar (todos menos init y él mismo)
+TIPOS
+SIGUSR1 y SIGUSR2: Para usuarios
+SIGKILL: Termina la ejecución, NO PUEDE SER IGNORADA. Es un comando de terminal que manda una senial especificada. 
+SIGSTOP: Detiene la ejecución, NO PUEDE SER IGNORADA en linux es CTRL+ZHILOS
+#include <pthread.h> CREAR HILO
+int pthread_create(pthread_t *thread, const pthread_attr_t *attr, void *(*start)(void *), void *arg); //rc = pthread_create(puntero_hilo, atributo, funcion, argumento); 
+El nuevo hilo de ejecución se inicia llamando a la función identificada por start con el argumento arg. Si los atributos son definidos como NULL, tomará los atributos por defecto. La función start retorna un valor.
+“attr” es de tipo pthread_attr_t, se puede utilizar para especificar los atributos utilizados en la creación de un nuevo hilo. Incluye: localización y tamaño de la pila del hilo, prioridad de los hilos y si el hilo es unible (join) o no (PTHREAD_CREATE_JOINABLE : el hilo es “unible” y PTHREAD_CREATE_DETACHED: el hilo no es “unible”).
+Devuelve 0 si tuvo éxito o un error positivo en caso de error.
+Se define un argumento tipo const cuando se desea proteger a esa variable de posibles modificaciones. Que una variable sea const significa que es de solo lectura, nos aseguramos de que no se pueda modificar. attr no es definida en un principio como const cuando se la declara, sino dentro de la función.
+El tercer argumento de pthread_create() indica que:
+void *(*start)(void *).
+1. Es un puntero a una función start, 
+2. Su argumento de entrada es un puntero a void,           void *(*start)(void *).
+3. Su argumento de salida es un puntero a void, void *(*start)(void *).
+Que un argumento de entrada sea definido como void implica que en realidad podrá ser cualquier tipo de dato cuando se implemente la función que será asignada al hilo. Sí será necesario castear a puntero void esta variable arg.
+LIBERACIÓN DE HILO
+int pthread_detach(pthread_t thread); //el sistema limpia y remueve el hilo automáticamente cuando este termina, no se lo puede esperar con un join. Devuelve 0 si tiene éxito, o un error positivo en caso de error.
+TERMINAR HILO
+void pthread_exit(void *retval); // Termina solo ese hilo.
+exit();   //es como si hiciera return(); me termina todo. retval especifica el valor de retorno para el hilo int pthread_cancel(pthread_t thread);                 // Se cancela el hilo
+IDENTIFICACIÓN DEL HILO
+pthread_t pthread_self(void);    // Devuelve el TID UNIÓN DE UN HILO
+int pthread_join(pthread_t thread, void **retval);           // Espera que los demás hilos terminen.
+Devuelve 0 si tuvo éxito o un número positivo en caso de error. Si retval es un puntero no nulo, recibe una copia del valor  de  retorno  del  hilo  terminado  (  el  valor  que  se  especificó  cuando  el  hilo  realizó  un  retorno  o  llamado pthread_exit().). Es parecido al waitpid(); pero no hay jerarquía, cualquiera puede unirse con cualquiera.
+char * itoa( int valor, char * cadena_destino, int base )

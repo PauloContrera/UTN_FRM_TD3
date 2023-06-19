@@ -1,6 +1,9 @@
 /*  
  * Ejercicio 1 del TP Hilos
- *
+   Compile y ejecute el programa hilos01.c.
+   Compile el programa gcc -o hilos01 hilos01.c -lpthread
+   Ejecute ./ hilos01
+   Analice el código ejemplo de una creación de hilo.
  */
 
 #include <pthread.h>
