@@ -100,4 +100,11 @@ pthread_t th1, th2;
 
 }
 
+/* Ejercicio 7 del TP mutex  productor-consumidor con mutex 
+* Problema productor-consumidor
+* Analice,   compile   y   ejecute   el   programa   mutex06.c.   ¿Cuál   es   el   objetivo   del programa?  
+* Observe la salida por consola. Explique el problema productor consumidor y cómo lo soluciona con mutex.
 
+	SAPAJA
+
+*/

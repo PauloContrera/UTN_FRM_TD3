@@ -63,3 +63,16 @@ int arre[10];
 	pthread_exit(NULL);
 }
 
+/* Ejercicio 2 del TP de semaforos sin nombre 
+
+* Analice, compile y ejecute el programa sem02.c ¿Cuál es el objetivo del programa?.
+* Observe la salida por consola.
+* 	- ¿Qué valor debería tener la variable total al finalizar el programa?
+* 	- Cambien el valor de inicialización de la variable contador de 10 a 100000 y ejecute varias veces el programa. 
+* 	- ¿Qué valor debería tener la variable total al finalizar el programa?. ¿Qué problema observa?
+* 	- Implemente semáforos para solucionar el problema.
+
+	
+
+
+*/

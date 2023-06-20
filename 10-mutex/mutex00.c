@@ -74,3 +74,19 @@ int rc ;
 	
 }
 
+/*
+		*Ej1
+*Analice, compile y ejecute el programa mutex00.c
+	*Compile el programa gcc -o mutex00 mutex00.c -lpthread
+	*Ejecute./mutex00
+	
+	El programa main() crea un hilo y le asigna la funcion hilo 0
+	donde le envia un numero en este caso =5, y este lo suma la variable global total
+
+	El ejercicio usa mutex para el control de variables globales total, donde el suma 5 en la funcion hilo total
+	y en el programa principal, obteniendo un total de 30 al final
+
+	!Problemas que tiene el programa: al ejecutar un hilo antes de abrir el mutex, el mutex es tomato algunas veces por el hilo, 
+	! y otras veces por el programa main, se recomienda abrir el muutex antes de iniciar el hilo
+
+*/

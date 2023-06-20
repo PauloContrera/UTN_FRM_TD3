@@ -56,3 +56,19 @@ int arre[5];
 	pthread_exit(NULL);
 }
 
+/* Ejercicio 2 del TP mutex:  acceso a variables compartidas sin uso mutex 
+
+* Analice,   compile   y   ejecute   el   programa   mutex01.c   ¿Cuál   es   el   objetivo   del  programa?. 
+
+	El objetivo del codigo es demostrar porque es neceseario el uso de mutex, dado que al no usar mutex, los hilos van compitiendo por el uso 
+	de las variables globales, y se van superponiendo unas con otras
+
+* 	- Ejecute varias veces ./mutex01  
+* 	¿Cuál debería ser el valor de la variable global total? 
+* 	¿Cuál es el valor de la variable global total? ¿Qué esta pasando?
+En cada ejecución, el valor esperado de la variable global total debería ser 500000, ya que hay 5 hilos 
+y cada uno de ellos realiza 100000 incrementos en el bucle. Sin embargo, debido a la falta de sincronización entre los hilos, 
+se producen condiciones de carrera. Esto significa que varios hilos pueden intentar acceder y modificar la variable total simultáneamente, 
+lo que puede llevar a resultados incoherentes.
+
+*/

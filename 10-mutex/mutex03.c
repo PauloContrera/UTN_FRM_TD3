@@ -37,13 +37,15 @@ int local1 , j, numero;
 	s=pthread_mutex_unlock(&mtx);      
 	if (s!=0){
 		printf("ERROR; pthread_mutex() = %d\n", s);
-		exit(-1);    }
+		exit(-1);    
+		}
 
 	pthread_exit(NULL);
 	
 }
 
 void *HILO1(void *nro) {
+
 int local1 , j, numero;
 
 	numero= *(int*)nro;
@@ -64,9 +66,9 @@ int local1 , j, numero;
 
 int main() {
 
-pthread_t hilo[5];
 int rc ;
 int arre[5];
+pthread_t hilo[5];
 
 	total=0;
 	vueltas=1000000;
@@ -98,3 +100,19 @@ int arre[5];
 
 }
 
+/* Ejercicio 4 del TP mutex: acceso a variables compartidas con y sin uso mutex 
+
+*Analice,   compile   y   ejecute   el   programa   mutex03.c.     ¿Cuál   es   el   propósito   del programa?. 
+	*- Ejecute varias veces ./mutex03  
+
+	El codigo crea 2 hilos que incrementan la variable globlar de la misma manera que mutex01 y mutex 02
+	El hilo 0 usa mutex y el hilo 1 no, esto trae el mismo problema que mutex01
+
+*¿Cuál debería ser el valor de la  variable  global  total y con qué valor finaliza la variable global total?  
+*¿Cómo solucionaría el problema?
+
+	El valor de la variable global debe ser 200000 y finaliza con valores distintos dado que hilo 1 interfiere cuando 
+	hilo 0 esta ejecutando la variblae
+	Solucion agregar mutex a hilo1, se agregara en mutex03edit.c
+
+*/

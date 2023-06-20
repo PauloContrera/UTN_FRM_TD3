@@ -42,7 +42,7 @@ int main(void)
 		sleep(1);
 				
 		// **** RESOLUCION DEL EJERCICIO *******************************
-		kill(pid, SIGUSR1);
+		3
     	// signal(SIGUSR1, 0);
 
 		// *************************************************************

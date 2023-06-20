@@ -1,6 +1,6 @@
 /*  
  * Ejercicio 4 del TP Hilos
- *   
+ * Abajo explicacion del codigo
  */
 #include <pthread.h>
 #include <stdio.h>
@@ -48,3 +48,26 @@ int main()
       
    exit(0);
 }
+
+/*  
+ * Ejercicio 4 del TP Hilos
+*Abra en un editor el programar hilos04.c. ¿Cuál es el propósito del programa?.
+*Compile el programa y ejecútelo varias veces. ¿Con qué valor finaliza la variable
+*global suma?
+El propósito del programa es crear 100 hilos en paralelo y realizar una suma en la variable global suma. 
+Cada hilo incrementa la variable suma en 1. Al finalizar la ejecución de todos los hilos, 
+se imprime el valor de suma.
+
+el programa termina con la variable global suma=100
+
+*-Ahora, descomente la línea 18 y vuelva a compilar. Ejecute varias veces el
+*programa. ¿Con qué valor finaliza la variable global suma? ¿Presenta el mismo
+*valor que en el caso anterior? Si se observan cambios, ¿a qué se deben?.
+Al ejecutar la variable mas rapido con el uslepp la variable no tiene tiempo suficioente para ejercutarse
+El hilo se ejecuta mas rapido y el hilo es terminado antes que la variable pueda sumarse
+EL valor varia dado que pocas veces puede completar la sumarse
+
+*- Realice la misma operación que en el punto anterior comentando la línea 18 y
+*descomentando la línea 19.
+
+ */

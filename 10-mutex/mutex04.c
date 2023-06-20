@@ -67,7 +67,7 @@ int local1 , j, numero;
 
 	numero= *(int*)nro;
 	
-	s=pthread_mutex_lock(&mtx1);       
+	s=pthread_mutex_lock(&mtx);       
 	if (s!=0){
 		printf("ERROR; pthread_mutex() = %d\n", s);
 	exit(-1);   }
@@ -76,7 +76,7 @@ int local1 , j, numero;
 
 	sleep(2);
 	
-	s=pthread_mutex_lock(&mtx);        
+	s=pthread_mutex_lock(&mtx1);        
 	if (s!=0){
 		printf("ERROR; pthread_mutex() = %d\n", s);
 	exit(-1);   }
@@ -149,3 +149,12 @@ int arre[5];
 
 }
 
+/* Ejercicio 5 del TP mutex interbloqueos 
+* Analice,   compile   y   ejecute   el   programa   mutex04.c.   ¿Cuál   es   el   objetivo   del programa? 
+* ¿Cuál es el problema? ¿Qué solución propone?
+
+	El programa crea 2 hilos que usan 2 mutex, el problema que al no esperar el orden de los mutex se bloquea 
+	solucion respetar el orden de los mutex, se cambio el orden del mutex en la linea 70 y 79, por mutex y por mutex1
+	Dado que hay que respetar la apertura de los mutex
+
+*/

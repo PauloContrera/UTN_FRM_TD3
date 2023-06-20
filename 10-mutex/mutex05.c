@@ -89,3 +89,36 @@ int arre[5];
     pthread_exit(NULL);
 
 }
+
+/* Ejercicio 6 del TP mutex uso mutex dinamicos
+
+	*Analice,   compile   y   ejecute   el   programa   mutex05.c.   ¿Cuál   es   el   objetivo   del programa? 
+	*¿Qué diferencia encuentra con los programas anteriores?
+
+	El objetivo del programa es utilizar mutex dinámicos para sincronizar el acceso a la variable global total. 
+	Esto evita las condiciones de carrera y garantiza que el incremento de total se realice de manera segura en cada hilo.
+
+	La diferencia principal con los programas anteriores es el uso de mutex dinámicos en lugar de mutex estáticos. 
+	Se utilizan las funciones pthread_mutex_init y pthread_mutex_destroy para inicializar y destruir el mutex dinámico respectivamente. 
+	Además, se utiliza pthread_mutex_lock y pthread_mutex_unlock para bloquear y desbloquear el mutex dentro de la función HILO0. 
+	Esto garantiza la exclusión mutua y evita las condiciones de carrera que se producían en los programas anteriores.
+
+	!Aclaracion entre mutex estatico y dinamico
+~Mutex estático: 
+	Un mutex estático se inicializa en tiempo de compilación y se destruye automáticamente cuando finaliza el programa. 
+	Se declara y se define como una variable global o estática, y se inicializa utilizando el valor predeterminado 
+	PTHREAD_MUTEX_INITIALIZER. No se requiere llamar explícitamente a funciones para inicializar o destruir el mutex estático.
+
+~Mutex dinámico: 
+	Un mutex dinámico se inicializa en tiempo de ejecución y se destruye mediante una llamada explícita a una función específica. 
+	Para utilizar un mutex dinámico, se deben llamar a las funciones pthread_mutex_init para inicializarlo y pthread_mutex_destroy 
+	para destruirlo. El mutex dinámico se crea en el montón (heap) y su vida útil puede ser controlada durante la ejecución del programa. 
+	Esto permite una mayor flexibilidad y control sobre el mutex.
+
+~Conclusion	
+	La ventaja de utilizar mutex dinámicos es que se pueden crear y destruir en cualquier momento durante la ejecución del programa. 
+	Esto es útil cuando se necesita un mutex solo en ciertas secciones del código o cuando la cantidad de mutex necesarios 
+	puede variar dinámicamente. Además, el uso de mutex dinámicos permite personalizar los atributos del mutex, 
+	como su tipo (normal, recursivo, etc.).
+x
+ */
