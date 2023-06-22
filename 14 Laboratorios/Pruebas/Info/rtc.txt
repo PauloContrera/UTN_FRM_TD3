@@ -1,0 +1,29 @@
+RTS
+Indique lo correcto respecto a RTS (Real Time System)
+•	El determinismo en RTS es poder cumplir predeciblemente requisitos temporales
+•	Los RTS no tienen que ejecutarse rápidamente.
+•	Los algoritmos de supervisión se ejecutan con periodos generalmente mayores a los algoritmos de control.
+•	En el nivel de software interface de usuario, no hay restricciones temporales estrictas.
+Implementación foreground/background (primer plano/Segundo plano) para RTS.
+•	La latencia en estos sistemas dependerá de lo que demore la ejecución de las rutinas de atención de interrupción.
+•	Pueden tener incoherencia si los datos se comparten entre rutinas de interrupción y tareas de primer plano.
+•	La latencia en estos sistemas está definida por las rutinas de atención de interrupción.
+Una lo que corresponda:
+•	Un RTOS no expropiativo: Puede tener incoherencia solo si se comparten datos entre ISR y tareas de primer plano.
+•	Un sistema background/foreground respect de un scan loop: disminuye la latencia de las tareas de segundo plano
+•	Un sistema scan loop: tiene el mayor de los rendimientos.
+•	Un RTOS expropiativo respecto a un RTOS no expropiativo: disminuye la latencia de las tareas de primer plano.
+RTOS expropiativo:
+•	El uso correcto de semáforos o colas de mensaje permite evitar problemas de incoherencia.
+•	Este tipo de RTOS permite disminuir el tiempo de latencia de foreground respecto a los RTOS no apropiativos.
+RTOS no apropiativos
+•	Tienen mayor latencia las tareas de foreground que en los RTOS apropiativos.
+Implantación de RTS con procesamiento secuencial.
+•	Si se necesita un periodo de muestreo (Ts) determinado, se adiciona un timer y una tarea, siempre que Ts sea menor al tiempo que demoran las tareas que componen el bucle.
+•	En caso que una tarea del bucle con periodo mayor a Ts y tiempo de ejecución largo, es posible dividirla en dos o más, para que se cumpla el Ts.
+Tarea A se está ejecutando en FreeRTOS
+•	Si la tarea B que es mas prioritaria que A se pasa a estado listo, no es necesario esperar el quantum para realizar la conmutación y ejecutar la tarea B.
+•	Si la tarea B que es de igual prioridad que A se pasa a estado listo, se debe esperar el quantum o que A se bloquee para realizar la conmutación y ejecutar la tarea B.
+Seleccione lo correcto respecto a ISR
+•	Las ISR no deben invocar a funciones del RTOS que conmuten de tareas.
+

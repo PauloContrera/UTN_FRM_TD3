@@ -26,7 +26,7 @@ int s;
 	printf ("Soy el HILO voy a incrementar semaforo\n");
 
 //------ Se incrementa sem 
-//*Es necesario incrementar el semaforo, dado que su valor es =0, y el proceso final esta a la espera
+// *Es necesario incrementar el semaforo, dado que su valor es =0, y el proceso final esta a la espera
 //*Si el hilo no incrementa, el programa queda en bucle
 	s=sem_post(&sem);
 	if (s != 0) {//Comprueba que salio todo OK

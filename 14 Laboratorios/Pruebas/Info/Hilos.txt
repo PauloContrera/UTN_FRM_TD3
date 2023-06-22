@@ -1,0 +1,19 @@
+HILOS
+Recursos compartidos por los hilos de un mismo proceso.
+•	Señales y manejadores de señales
+•	Variables globales
+•	Espacio de direcciones
+Afirmaciones verdaderas respecto al uso de hilos.
+•	Ante un error en tiempo de ejecución en el código del hilo, se termina el proceso al que pertenece el hilo.
+•	Permiten el paralelismo real en computadoras de más de un núcleo.
+•	La ejecución de hilos es separada y los recursos son compartidos.
+•	Puede mejorar la velocidad de ejecución en sistemas multiprocesador.
+Recurso compartido por los hilos de un mismo proceso.
+•	Espacio de direcciones (space address)
+•	Memoria dinámica (heap)
+Afirmaciones verdaderas cuando se ejecuta el comando pthread_create():
+•	Es posible configurar el tamaño de stack y la prioridad del hilo en el segundo argumenta de la llamada.
+•	Si la creación es exitosa, el hilo ejecuta la función indicada como tercer argumento.
+•	Si la creación del hilo no es exitosa, retorna el número de error.
+•	Si no hubo error, almacena en un buffer indicado por el primer argumento el TID.
+   rc = pthread_create(&hilo[0], NULL, hola , (void *)(&t)  );

@@ -1,0 +1,37 @@
+Memoria Virtual
+Algoritmos de reemplazo de página para memoria virtual:
+•	El algoritmo Working Set se implementa con una lista circular y los bits M y R.
+•	El algoritmo aging es una alternativa de LRU, sin utilizar hardware especial.
+•	El algoritmo NRU es más fácil de implementar que el algoritmo working set.
+•	El algoritmo wsclock es una mejora del algoritmo working set.
+•	El algoritmo optimo es imposible de implementar, pero se usa con fines comparativos.
+•	El algoritmo aging es una modificación en software del LRU.
+Segmentación para memoria virtual
+•	Cada segmento constituye un espacio de direcciones independiente
+•	Desacopla la relación 1 a 1 entre el bus de direcciones y la memoria física.
+•	Para acceder a una dirección física solo es necesario indicar el nombre del segmento y el offset.
+Técnica de paginación para memoria virtual
+•	Permite ejecutar programas mas grandes que la memoria física.
+•	El bus de direcciones del procesador no esta directamente conectado a la memoria física.
+•	Solo crea un espacio de direcciones para cada programa en ejecución.
+•	EL bus de direcciones del procesador no está directamente conectado a la memoria física.
+Gestión de memoria con particiones fijas:
+•	Puede existir fragmentación interna.
+•	Para asignar particiones se pueden usar cola única o múltiples colas.
+Administración de memoria con mapas de bits, para particiones variables:
+•	Cuanto menor sea la unidad de asignación, menor será la fragmentación interna.
+•	La fragmentación externa NO depende del tamaño de la unidad de asignación de memoria.
+•	NO Corresponde:
+o	La fragmentación externa depende del tamaño de la unidad de asignación de memoria.
+o	Cuanto mayor sea la unidad de asignación de memoria, mayor será el mapa de bits.
+o	Es rápida la asignación de memoria y lenta la liberación de memoria.
+o	La asignación y liberación de memoria demoran el mismo tiempo.
+Algoritmos de ubicación de memoria, para gestión de memoria con particiones variables:
+•	El mejor provoca más desperdicio de memoria que el primer ajuste.
+•	El primer ajuste es más rápido para asignar memoria que el peor ajuste.
+•	El siguiente ajuste tiene rendimiento un poco peor que el primer ajuste.
+•	El mejor ajuste provoca mas desperdicio de memoria que el primer ajuste.
+•	El siguiente ajuste tiene rendimiento mejor que el mejor ajuste.
+•	El algoritmo del mejor ajuste se puede mejorar con listas separadas y ordenadas de huecos y procesos.
+•	El mejor ajuste provoca mas desperdicio de memoria que el primer ajuste.
+•	EL primer ajuste es mas rápido para asignar memoria que el peor ajuste.

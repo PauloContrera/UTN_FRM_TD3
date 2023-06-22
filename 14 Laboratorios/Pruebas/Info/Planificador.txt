@@ -1,0 +1,53 @@
+Planificador
+Planificación de procesos.
+•	La necesidad de los planificadores surge para poder tener en memoria mas de un proceso a la vez.
+•	Al poder tener en memoria mas de un proceso a la vez, es necesario el uso de planificadores.
+Algoritmo de planificación Fiar-Share
+•	Es un algoritmo expropiativo
+•	Es un sistema proporcional para los usuarios
+Algoritmo de planificación Round-Robin
+•	No usa técnicas de envejecimiento
+•	Si a una tarea en ejecución se le termina el quantum, va al final de la FIFO
+•	Es un algoritmo equitativo.
+•	No es necesario que las tareas estén disponibles en el momento inicial.
+•	Si a una tarea en ejecución se le termina el quantum, va al final de la FIFO.
+Algoritmo de planificación Shortest Remaining Time Next
+•	Es la versión expropiativa de shortest job first
+•	Se debe conocer de antemano el tiepo de ejecución de los trabajos.
+•	Favorece la ejecución de tareas cortas.
+Multi threading
+•	En la implementación de hilos de manera hibrida: Cada hilo de nivel kernel tiene algún conjunto de hilos de nivel usuario
+•	En la implementación de hilos modo kernel: Cuando un hilo se bloquea, no bloquea al resto de los hilos del proceso.
+•	En la implementación de hilos en modo usuario: La creación de nuevos hilos es más rápida.
+Algoritmo shortest process next
+•	Usa una aproximación basada en registración del comportamiento anterior.
+•	Es fácil de implementar, sumando el nuevo valor a la estimación actual y desplazando un bit a la derecha.
+•	No es necesario tener todos los procesos en tiempo inicial T0.
+Algoritmo de planificación por prioridad con múltiples colas
+•	Cuando los procesos se convierten interactivos, se les asigna la mayor prioridad
+•	Disminuye la cantidad de cambios de contexto.
+•	Se asigna distinta cantidad de quantums a cada nivel de prioridad.
+La inversión de prioridad:
+•	Se puede dar entre dos tareas de distinta prioridad que utilicen un semáforo binario compartido.
+•	Se puede dar entre dos tareas de distinta prioridad que utilicen una cola de mensaje compartida.
+•	Siempre aumenta la latencia de la tarea más prioritaria.
+
+Condiciones necesarias para que exista deadlock entre dos o más eventos.
+•	Exclusión mutua de los eventos
+•	Espera circular entre los eventos
+•	Sin expropiación de los eventos.
+Indique lo correcto referido a concurrencia del evento A respecto del evento B
+•	El evento A y el evento B pueden ejecutarse simultáneamente en caso de usar sistemas multitarea.
+•	No es necesario forzar la situación de concurrencia, ni usar mutex, barrier o semáforos.
+Indique lo correcto referido a punto de encuentro del evento A respecto del evento B
+•	El evento A debe esperar la ocurrencia del evento B, e inversamente
+•	Para forzar la situación de punto de encuentro (para dos eventos) se pueden usar dos semáforos, ambos inicialmente en 0.
+Indique lo correcto referido a exclusión mutua del evento A respecto del evento B
+•	Para forzar la situación de exclusión mutua (para dos eventos) se puede usar un semáforo, inicialmente en 1.
+•	El evento A no debe ocurrir en el mismo momento que el evento B
+Indique lo correcto respecto a serialización del evento A respecto del evento B
+•	El evento A debe esperar la ocurrencia del evento B.
+•	Para forzar la situación de serialización se puede usar un mutex, inicialmente en 0.
+
+
+

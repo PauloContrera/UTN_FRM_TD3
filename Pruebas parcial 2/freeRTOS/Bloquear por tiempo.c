@@ -32,7 +32,7 @@ void vTask1 ( void *pvParameters )
 char *pcTaskName;
 const TickType_t xDelay = pdMS_TO_TICKS( 800 );
 pcTaskName = ( char * ) [pvParameters];
-[for( ;; )]
+for( ;; )
 {
 vPrintString( pcTaskName );
 Board_LED_Toggle(4); //LED rojo;
