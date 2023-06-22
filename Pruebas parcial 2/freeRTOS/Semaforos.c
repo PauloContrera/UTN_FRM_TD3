@@ -19,7 +19,6 @@ SemaphoreHandle_t xBinarySemaphore;//!no se usa
 int main( void )
 {
 //*xMutex a sido definida como una varible global del semaforo y con xSemaphoreCreateMutex()creamos el semaforo
-
 xMutex = xSemaphoreCreateMutex(); 
 
 for( ;; );

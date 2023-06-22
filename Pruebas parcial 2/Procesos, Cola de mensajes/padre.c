@@ -89,7 +89,7 @@ int main(void)
 	{
 		printf("Padre en ejecucion... \n"); 
 
-		sleep(1);
+		sleep(2);
 
 		// **** RESOLUCION DEL EJERCICIO *******************************
 	mqd = mq_open(MQ_PATH, O_RDWR | O_CREAT, 0777, &attr); 

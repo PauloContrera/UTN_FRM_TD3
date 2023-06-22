@@ -75,6 +75,9 @@ int main(void)
 
 		// **** RESOLUCION DEL EJERCICIO *******************************
 
+	mqd = mq_open(MQ_PATH, O_RDWR | O_CREAT, 0777, &attr); 
+	leido = mq_receive(mqd, buff, attr_rcv.mq_msgsize, 0);
+   	printf("Mensaje leido: %s\n", buff);
 	err = mq_unlink(MQ_PATH);
 	if(err == -1){
 		printf ("Padre: error en mq_unlink (%d).\n", err);
