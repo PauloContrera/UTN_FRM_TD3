@@ -23,6 +23,7 @@ int main( void )
    return 0;
 }
 
+
 void vTask1( void *pvParameters )
 {
    const char *pcTaskName = "Task 1 is running\r\n";
@@ -46,4 +47,33 @@ void vTask1( void *pvParameters )
          loop with a proper delay/sleep function. */
       }
    }
+}
+
+
+int main(void)
+{
+}
+
+void vTask1(void *pvParameters)
+{
+    TickType_t xLastWakeTime;
+    const TickType_t xPeriod = pdMS_TO_TICKS(400);
+
+    xLastWakeTime = xTaskGetTickCount();
+    for (;;)
+    {
+        vTaskDelayUntil(&xLastWakeTime, xPeriod);
+        vPrintString("Creación vTask2\r\n");
+        xTaskCreate(vTask2, "Task2", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY + 1, NULL);
+        vTaskDelete(NULL);
+    }
+}
+
+void vTask2(void *pvParameters)
+{
+    for (;;)
+    {
+        Board_LED_Toggle(5); // LED verde
+        vTaskDelay(pdMS_TO_TICKS(400));
+    }
 }
