@@ -8,14 +8,14 @@
 
 #define FRACTION_BITS 8
 
-int32_t fp2fx (float_t a, int32_t n)
-{
-	
+int32_t fp2fx(float a, int32_t n) {
+    // Escalamos y redondeamos a Qn.m
+    return (int32_t)(a * (1 << n) + 0.5);
 }
 
-float_t fx2fp (int32_t X, int32_t n)
-{
-	
+float fx2fp(int32_t X, int32_t n) {
+    // Convertimos de Qn.m a punto flotante
+    return (float)X / (1 << n);
 }
 
 void main(void)
