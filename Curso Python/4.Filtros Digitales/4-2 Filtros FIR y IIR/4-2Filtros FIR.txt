@@ -1,0 +1,10 @@
+Características:
+
+    Tiene una respuesta al impulso de duración finita.
+    No utiliza retroalimentación en su estructura.
+    Implementación relativamente simple.
+
+Ejemplo de Filtro FIR:
+
+    Diseño: El diseño típico involucra la especificación de una respuesta al impulso deseada.
+    Respuesta al Impulso: Se convierte en los coeficientes del filtro.

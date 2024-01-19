@@ -1,0 +1,23 @@
+1¿Qué es un Filtro Digital?
+Definición: Un filtro digital es un sistema que realiza operaciones matemáticas en una señal digital 
+para modificar su contenido espectral.
+
+Tipos de Filtros:
+Filtros Paso Bajo (Low-pass): Permiten pasar las frecuencias más bajas y atenúan las frecuencias más altas.
+Filtros Paso Alto (High-pass): Permiten pasar las frecuencias más altas y atenúan las frecuencias más bajas.
+Filtros Paso Banda (Band-pass): Permiten pasar un rango específico de frecuencias.
+Filtros Rechazo de Banda (Band-stop): Atenuan un rango específico de frecuencias.
+
+2. Aplicaciones de Filtros Digitales:
+
+Procesamiento de Señales:
+    Eliminación de ruido.
+    Separación de componentes de frecuencia.
+    Modificación de características espectrales.
+
+Comunicaciones:
+    Filtrado en transmisión y recepción de señales.
+
+3. Desafío:
+
+Diseñar un filtro paso bajo en Python utilizando bibliotecas como SciPy para aplicarlo a una señal de entrada.

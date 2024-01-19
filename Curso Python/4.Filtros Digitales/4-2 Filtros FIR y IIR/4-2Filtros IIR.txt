@@ -1,0 +1,10 @@
+Características:
+
+    Tiene una respuesta al impulso que se extiende infinitamente en el tiempo.
+    Utiliza retroalimentación en su estructura.
+    Puede ser más eficiente en términos de implementación.
+
+Ejemplo de Filtro IIR:
+
+    Diseño: El diseño puede involucrar la especificación de polos y ceros en el plano Z.
+    Coeficientes: Los coeficientes del filtro son determinados por la ubicación de polos y ceros.   

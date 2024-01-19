@@ -1,0 +1,56 @@
+Lección 1: Introducción a Python
+1.1 Instalación de Python:
+
+Descarga e instala Python desde python.org.
+Aprende a utilizar el intérprete interactivo y a ejecutar scripts.
+1.2 Variables y Tipos de Datos:
+
+Entiende cómo declarar variables y los diferentes tipos de datos en Python (enteros, flotantes, cadenas, booleanos).
+1.3 Operadores:
+
+Conoce los operadores aritméticos, de comparación y lógicos.
+1.4 Estructuras de Control:
+
+Aprende sobre las estructuras de control de flujo (if, else, elif, while, for).
+1.5 Funciones:
+
+Define y utiliza funciones en Python.
+Ejercicio:
+
+Crea un programa simple que solicite al usuario dos números, realice una operación matemática y muestre el resultado.
+Lección 2: Trabajando con Listas y Ciclos
+2.1 Listas:
+
+Aprende sobre listas y cómo trabajar con ellas.
+2.2 Ciclos:
+
+Utiliza ciclos (for, while) para realizar operaciones en listas.
+Ejercicio:
+
+Crea un programa que tome una lista de números, realice una operación específica en cada elemento y muestre la lista resultante.
+Lección 3: Introducción a NumPy
+3.1 Instalación de NumPy:
+
+Instala NumPy usando pip (pip install numpy).
+3.2 Arrays en NumPy:
+
+Comprende el concepto de arrays en NumPy y cómo trabajar con ellos.
+3.3 Operaciones con NumPy:
+
+Realiza operaciones matemáticas y manipulación de datos utilizando NumPy.
+Ejercicio:
+
+Crea un programa que utilice NumPy para realizar operaciones matemáticas en arrays.
+Lección 4: Conceptos Básicos de Filtros Digitales
+4.1 Introducción a los Filtros Digitales:
+
+Comprende los conceptos básicos de los filtros digitales.
+4.2 Filtros FIR y IIR:
+
+Conoce las diferencias entre los filtros FIR (de respuesta finita al impulso) e IIR (de respuesta infinita al impulso).
+4.3 Diseño de Filtros en Python:
+
+Utiliza bibliotecas como SciPy para diseñar filtros digitales en Python.
+Ejercicio:
+
+Diseña un filtro simple (puede ser un filtro paso bajo) y aplícalo a una señal de entrada.
