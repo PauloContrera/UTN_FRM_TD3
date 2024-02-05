@@ -10,5 +10,7 @@ int main (){
 	
 	printf ("Mi pid es %d y el pid de papa es %d\n", getpid(),getppid());
 
+	sleep(30); 
 	exit(0);   
+
 	}
