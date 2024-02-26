@@ -11,7 +11,7 @@
 
 #define FRASE_A "INFORMACION IMPORTANTE A"
 #define FRASE_B "INFORMACION IMPORTANTE B"
-#define BUFF_SIZE 80
+#define BUFF_SIZE 25
 
 void pipe_sign_handler(int a){
    
@@ -29,8 +29,8 @@ int main (){
    pipe(ipc);
 
    switch (fork()){ 
-      
       case 0:
+      // *HijoA
 	   close(ipc[0]);      
 	   strncpy(buff, FRASE_A, sizeof(FRASE_A)); 
 	   write(ipc[1], buff, sizeof(FRASE_A));
@@ -41,7 +41,9 @@ int main (){
       default:
       switch (fork()){ 
             
-         case 0:
+         case 0: 
+      // *HijoB
+
             close(ipc[0]);               
             strncpy(buff, FRASE_B, sizeof(FRASE_B)); 
             write(ipc[1], buff,    sizeof(FRASE_B));
@@ -52,7 +54,6 @@ int main (){
          default:
             close(ipc[1]);
             int i;
-            
             sleep(1);
             
             for(i=0; i<2; i++){

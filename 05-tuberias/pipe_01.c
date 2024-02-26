@@ -26,6 +26,7 @@ int main (){
 
    signal(SIGPIPE, manejador);
    
+   // Crea la pipe y da los descriptores fd[0] fd[1]()
    pipe(fd);
 
    printf ("fd[0] = %d fd[1] = %d \n ", fd[0], fd[1]);   
@@ -33,7 +34,7 @@ int main (){
    pid = fork();
 
    if (pid == 0 ){ 
-      
+      // *HIJO
       // Se cierra el lado de escritura del hijo
       close(fd[WRITE]);  
 	
@@ -48,6 +49,8 @@ int main (){
       {
          // Escribe en consola
          //~ printf("Hijo, leido de la tuberia \"%s\" por el proceso hijo, pid %d \n", buff, getpid());
+        
+        
          write (STDOUT_FILENO, "Hijo, leido de la tuberia \"", sizeof("Hijo, leido de la tuberia \""));
          write (STDOUT_FILENO, buff, leido);
          printf("\" por el proceso hijo, pid %d \n", getpid());
@@ -59,6 +62,7 @@ int main (){
    
    }else
    {
+      // *PADRE
 	   // Se cierra el lado de lectura del padre
 	   close(fd[READ]);
 	   

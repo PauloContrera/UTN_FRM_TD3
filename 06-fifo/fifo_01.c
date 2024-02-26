@@ -46,7 +46,8 @@ int main(){
          sleep(5);
 
 		  // Se abre FIFO	
-         fifo_d = open(FIFO_PATH, O_RDONLY, 0); // O_NONBLOCK
+         fifo_d = open(FIFO_PATH,  O_RDONLY | O_NONBLOCK); // O_NONBLOCK
+         // fifo_d = open(FIFO_PATH, O_RDONLY , 0); // O_NONBLOCK
          if(fifo_d == -1){
             write (STDOUT_FILENO, "Hijo, error al abrir FIFO\n", sizeof("Hijo: error al abrir FIFO\n"));
             return -1;
@@ -100,9 +101,9 @@ int main(){
       break;   
    }
    
-   //Eliminación FIFO
-   //if (unlink(FIFO_PATH) < 0){
-   //   printf("No se puede borrar FIFO.\n"); }
+   // Eliminaciï¿½n FIFO
+   if (unlink(FIFO_PATH) < 0){
+      printf("No se puede borrar FIFO.\n"); }
       
    exit(0);
 

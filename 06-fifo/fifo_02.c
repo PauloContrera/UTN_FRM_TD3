@@ -71,7 +71,7 @@ int main(){
          write (STDOUT_FILENO, "Padre inicia\n", sizeof("Padre inicia\n"));
 
          /*  
-             El padre, ¿que debe hacer con la FIFO?
+             El padre, ï¿½que debe hacer con la FIFO?
          */      
          
          wait(NULL);   
@@ -81,7 +81,7 @@ int main(){
          break;
    }
    
-   // Eliminación FIFO
+   // Eliminaciï¿½n FIFO
    // if (unlink(FIFO_PATH) == 0)
    // {
    // 	printf("Se borra FIFO\n"); 

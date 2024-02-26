@@ -66,6 +66,14 @@ int main() {
 
       sleep(1);
 	}
+// ~a
+// ^a
+// *a
+// !a
+// TODO a
+// TODO: a
+
+
 
    exit(0);
 }
