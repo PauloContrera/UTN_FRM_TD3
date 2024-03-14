@@ -21,11 +21,13 @@ int main(){
 
    //unlink(FIFO_PATH);    // si la FIFO existe la borro
 
-   // FIFO puede ser leida, escrita y ejecutada por:
-   err = mkfifo(FIFO_PATH, S_IRUSR | S_IWUSR | S_IXUSR|  // el usuario que la creo
-                           S_IRGRP | S_IWGRP | S_IXGRP|  // el grupo al que pertenece el usuario
-                           S_IROTH | S_IWOTH | S_IXOTH); // el resto de los usuarios del sistema
-
+fifo_d = open(FIFO_PATH, O_WRONLY, 0);
+         if(fifo_d == -1){
+            write(STDOUT_FILENO, "Padre, error al abrir FIFO\n", sizeof("Padre, error al abrir FIFO\n"));
+            return -1;
+         }else {
+            write(STDOUT_FILENO, "Padre, FIFO abierta correctamente\n", sizeof("Padre, FIFO abierta correctamente\n"));
+         }
    //err = mkfifo(FIFO_PATH, 0777);
    if(err == -1) {
       write (STDOUT_FILENO, "Error al crear FIFO, la FIFO ya existe\n", sizeof("Error al crear FIFO, la FIFO ya existe\n"));
