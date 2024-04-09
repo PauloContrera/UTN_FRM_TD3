@@ -1,0 +1,5 @@
+kill -SIGUSR1 10355
+pstree
+kill -SIGUSR1 6784
+kill -SIGUSR2 6784
+pstree -p

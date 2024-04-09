@@ -1,0 +1,374 @@
+            !!!final40!!! 
+            
+       ---              ---                ---
+      | C |            | A |              | B |
+       ---              ---                ---
+       |     ------     | |     ------     | |     --------
+       |--->|socket|--->| |--->|ColaMe|--->| |--->|pantalla|
+             ------             ------             --------
+
+   c --> /_Socket_/--> A --> /_ColaMe_/ --> C --> /_Pantalla_/
+            
+            !!!final45!!! 
+            
+       --- 
+      | B |
+       --- 
+       |     -------      ---      --------      ---      --------  
+       |--->| PIPE1 |--->|   |    | Cola   |    |   |    |        |  
+       |     -------     | A |--->|Mensajes|--->| D |--->|pantalla|
+       |     -------     |   |--->|        |--->|   |--->|        | 
+       |--->| PIPE2 |--->|   |     --------      ---      --------  
+       |     -------      ---
+       ---              
+      | C |
+       --- 
+            
+            !!!final46!!! 
+            
+       --- 
+      | B |
+       --- 
+       |     -------      ---      --------      ---      --------  
+       |--->| PIPE1 |--->|   |    | Socket |    |   |    |        |  
+       |     -------     | A |--->|Datagama|--->| D |--->|pantalla|
+       |     -------     |   |--->|        |--->|   |--->|        | 
+       |--->| PIPE2 |--->|   |     --------      ---      --------  
+       |     -------      ---
+       ---              
+      | C |
+       --- 
+            
+            !!!final47!!! 
+            
+ ---      ---------------       ---      --------
+|   |--->|Socket datagrma |--->| B |--->|Pantalla|
+| A |     ----------------      ---      --------
+|   |     ----------------      ---      --------
+|   |--->|Cola de mensajes|--->| C |--->|Pantalla|
+ ---      ----------------      ---      --------
+            
+            !!!final48!!! 
+            
+ ---      -----------------      ---      --------
+|   |--->|Memoria comartida|--->| A |--->|Pantalla|
+| C |     -----------------      ---      --------
+|   |     -----------------      ---      --------
+|   |--->|Cola de mensajes |--->| B |--->|Pantalla|
+ ---      -----------------      ---      --------
+            
+            !!!final49!!! 
+            
+ ---      -----------------      ---      -----------------      ---      --------  
+| C |--->|Memoria comartida|--->| A |--->|Cola de mensajes |--->| B |--->|Pantalla| 
+ ---      -----------------      ---      -----------------      ---      --------
+            
+            !!!final51!!! 
+            
+ ---      -----------------      ---      --------  
+|   |--->|     pipe        |--->| A |--->|Pantalla|  
+| C |     -----------------      ---      --------
+|   |     -----------------      ---      --------  
+|   |--->|Cola de mensajes |--->| B |--->|Pantalla|  
+ ---      -----------------      ---      --------
+            
+            !!!final55!!! 
+            
+ ---      --------------      ---      --------  
+|   |--->|cola mensajes |--->| B |--->|Pantalla|  
+| A |     --------------      ---      --------
+|   |     --------------      ---      --------  
+|   |--->|     FIFO     |--->| C |--->|Pantalla|  
+ ---      --------------      ---      --------
+            
+            !!!final56!!! 
+
+       ---              ---                  ---  
+   S->| C |            | A |             S->| B |
+       ---              ---                  ---
+       |     ------     | |     --------     | |     --------  
+       |--->|socket|--->| |--->|COLA MSJ|--->| |--->|pantalla|  
+             ------             --------             --------
+
+            !!!final62!!! 
+
+ ---      -----------------      ---      --------  
+| B |--->|socket1 stream   |--->|   |--->|Pantalla|  
+|   |    |  Pantalla       |<---|   |--->|        |  
+ ---      -----------------     | A |     --------
+ ---      -----------------     |   |     --------  
+| C |--->|socket2 datagram |--->|   |--->|Pantalla|  
+|   |    |  Pantalla       |<---|   |--->|        |  
+ ---      -----------------      ---      --------
+
+            !!!GlobalPaulo!!! 
+
+
+ SIGUSR1
+  |
+ ---      ---------------      ---      --------  
+|   |--->|     FIFO      |--->| B |--->|Pantalla|  
+| A |     ---------------      ---      --------
+|   |     ---------------      ---      --------  
+|   |--->|SOCKET DATAGRAM|--->| C |--->|Pantalla|  
+ ---      ---------------      ---      --------
+                                |
+                             SIGUSR2
+
+
+
+
+
+*******************************************************************************
+*******************************************************************************
+*******************************************************************************
+**************************Dentro de la carpeta Viejos**************************
+*******************************************************************************
+*******************************************************************************
+*******************************************************************************
+            !!!ex01!!! 
+            
+ ---      ---------------       ---      --------  
+|   |--->|Socket datagrma |--->| B |--->|Pantalla|  
+| A |     ----------------      ---      --------
+|   |     ----------------      ---      --------  
+|   |--->|Cola de mensajes|--->| C |--->|Pantalla|  
+ ---      ----------------      ---      --------
+            
+            !!!ex02!!! 
+            
+ ---      ---------------       ---      --------  
+|   |--->|Socket datagrma |--->| B |--->|Pantalla|  
+| A |     ----------------      ---      --------
+|   |     ----------------      ---      --------  
+|   |--->|     FIFO	    |--->| C |--->|Pantalla|  
+ ---      ----------------      ---      --------
+            
+            !!!ex03!!! 
+            
+       --- 
+      | B |
+       --- 
+       |     -------      ---      --------      ---      --------  
+       |--->| PIPE1 |--->|   |    | Socket |    |   |    |        |  
+       |     -------     | A |--->|Datagama|--->| D |--->|pantalla|
+       |     -------     |   |--->|        |--->|   |--->|        | 
+       |--->| PIPE2 |--->|   |     --------      ---      --------  
+       |     -------      ---
+       ---              
+      | C |
+       --- 
+            
+            !!!ex04!!! 
+            
+       --- 
+      | B |
+       --- 
+       |     -------      ---      --------      ---      --------  
+       |--->| PIPE1 |--->|   |    |        |    |   |    |        |  
+       |     -------     | A |--->|  FIFO  |--->| D |--->|pantalla|
+       |     -------     |   |--->|        |--->|   |--->|        | 
+       |--->| PIPE2 |--->|   |     --------      ---      --------  
+       |     -------      ---
+       ---              
+      | C |
+       --- 
+            
+            !!!ex05!!! 
+            
+       --- 
+      | B |
+       --- 
+       |     -------      ---      --------      ---      --------  
+       |--->| PIPE1 |--->|   |    | Cola   |    |   |    |        |  
+       |     -------     | A |--->|Mensajes|--->| D |--->|pantalla|
+       |     -------     |   |--->|        |--->|   |--->|        | 
+       |--->| PIPE2 |--->|   |     --------      ---      --------  
+       |     -------      ---
+       ---              
+      | C |
+       --- 
+
+            
+            !!!ex06!!! 
+
+       --- 
+      | B |
+       --- 
+       |     -------      ---      --------      ---      --------  
+       |--->| FIFO1 |--->|   |    | Cola   |    |   |    |        |  
+       |     -------     | A |--->|Mensajes|--->| D |--->|pantalla|
+       |     -------     |   |--->|        |--->|   |--->|        | 
+       |--->| FIFO2 |--->|   |     --------      ---      --------  
+       |     -------      ---
+       ---              
+      | C |
+       --- 
+        
+            
+            !!!ex07!!! 
+            
+       --- 		          ---		       ---
+      | C |		         | A |		      | B |
+       --- 		          ---		       --- 
+	    |     ------     | |     ------     | |     --------
+	    |--->|socket|--->| |--->| PIPE |--->| |--->|pantalla|
+	          ------		     ------             -------- 
+              
+C ---> /_socket_/--> A --> /_PIPE_/ --> B --> /_pantalla_/ 
+            
+            !!!ex08!!! 
+            
+       ---              ---                ---  
+      | C |            | A |              | B |
+       ---              ---                ---
+       |     ------     | |     ------     | |     --------  
+       |--->|socket|--->| |--->|ColaMe|--->| |--->|pantalla|  
+             ------             ------             --------
+
+   c --> /_Socket_/--> A --> /_ColaMe_/ --> C --> /_Pantalla_/  
+            
+            !!!ex09!!! 
+            
+       ---              ---                ---  
+      | C |            | A |              | B |
+       ---              ---                ---
+       |     ------     | |     ------     | |     --------  
+       |--->|socket|--->| |--->|FIFO  |--->| |--->|pantalla|  
+             ------             ------              --------
+
+   C --> /_socket_/--> A --> /_FIFO_/ --> C --> /_Pantalla_/ 
+            
+            !!!ex10!!! 
+            
+Dos hilos (A y B) de un proceso se comunican por medio de una Tuberia.
+El hilo A escribe en la Tuberia "0123456789" en forma atomica.
+El hilo B escribe en la misma Tuberia "ABCDEFGHIJ" en forma atomica.
+El hilo main lee los mensajes desde esta Tuberia y muestra lo leido en consola.
+            
+            !!!ex11!!! 
+            
+ Un proceso crea 200 hilos.
+ 100 hilos se asocian con la función incrementar().
+ Los 100 hilos restantes se asocian con la función decrementar().
+ Se debe crear la función decrementar(), la cual debe restar la variable en lugar de sumarla.
+ Al final de la ejecución de los 200 hilos la variable "total" debe valer cero (0).
+            
+            !!!ex12!!! 
+            
+Dos procesos (A y B) se comunican por medio de una Cola de Mensaje, del siguiente modo:
+1) El proceso A crea la cola de mensaje y crea al proceso B.
+2) Proceso B al recibir la señal SIGINT escribe en la Cola de Mensaje "0123456789" y termina.
+3) Proceso A espera que B termine y lee de la Cola de Mensaje lo escrito por el proceso B y muestra lo leído y elimina la cola de mensajes.
+
+Considerar los procesos con la siguiente jerarquía: Proceso A (padre), Proceso B (hijo de A).
+
+            
+            !!!ex13!!! 
+            
+Tres hilos (main, A y B) de un proceso se comunican por medio de una Cola de Mensaje.
+1) El hilo A escribe en la Cola de Mensaje "0123456789" en forma atomica y termina.
+2) El hilo B espera que el hilo A termine
+3) El hilo B escribe en la Cola de Mensaje "ABCDEFGHIJ" en forma atomica y termina.
+4) El hilo main espera que termine el Hilo B.
+5) El hilo main lee los mensajes de la cola de mensajes muestra lo leido y elimima la cola de mensajes.
+            
+            !!!ex14!!! 
+            
+Tres procesos (A, B y C) se comunican por medio de una Cola de Mensaje.
+1) El proceso C envia una señal (SIGUSR1) al proceso A. El proceso A escribe en la Cola de Mensaje "0123456789" y termina
+2) El proceso C espera a que termine el procesos A, lee de la Cola de Mensaje y muestra lo leido.
+3) El proceso C envia una señal (SIGUSR2) al proceso B. El proceso B escribe en la Cola de Mensaje "ABCDEFGHIJ" y termina.
+4) El proceso C espera a que termine el procesos B, lee de la Cola de Mensaje, muestra lo leido y elimina la cola de mensajes.
+
+
+            
+            !!!ex15!!! 
+            
+Tres procesos (A, B y c) se comunican por medio de una Cola de Mensaje, del siguiente modo:
+1) El Proceso C crea la cola de mensaje y crea al proceso B.
+2) El Proceso B crea al proceso A.
+3) Proceso A escribe en la Cola de Mensaje "0123456789" y termina.
+4) Proceso B espera que A termine y lee de la Cola de Mensaje lo escrito por el proceso A y lo muestra 
+5) Luego el Proceso B escribe en la Cola de Mensaje "ABCDEFGHIJ" y termina.
+6) El Proceso C espera que B termine, lee la Cola de Mensaje,  muestra lo leido y elimina la cola de mensajes.
+
+Considerar los procesos con la siguiente jerarquia: Proceso C (padre), Proceso B (hijo de C), Proceso A (hijo de B),
+
+            
+            !!!ex16!!! 
+            
+Tres procesos (A, B y C) se comunican por medio de 2 Tuberías.
+1) El proceso A escribe en una Tubería "0123456789" y termina
+2) El proceso B escribe en otra Tubería "ABCDEFGHIJ" y termina.
+3) El proceso C lee de las Tuberías después que A y B terminaron y muestra lo leído.
+
+Considerar los procesos con la siguiente jerarquía: Proceso C (padre), Proceso B (hijo 1 de C), Proceso A (hijo 2 de C)
+
+            
+            !!!ex17!!! 
+            
+Tres procesos (A, B y C) se comunican por medio de 2 Tuberias.
+1) El proceso C envia una señal (SIGUSR1) al proceso A. El proceso A al recibir esta señal escribe en una Tuberia "0123456789" y termina
+2) El proceso C lee de la Tuberia despues que A termina, muestra lo leido y desturye la tuberia.
+3) El proceso C envia una señal (SIGUSR2) al proceso B. El proceso B al recibir esta señal escribe en una Tuberia "ABCDEFGHIJ" y termina
+4) El proceso C lee de la Tuberia despues que B termina, muestra lo leido y destruye la tuberia.
+
+
+            
+            !!!ex18!!! 
+            
+ ---      -----------------      ---      --------  
+|   |--->|     pipe        |--->| A |--->|Pantalla|  
+| C |     -----------------      ---      --------
+|   |     -----------------      ---      --------  
+|   |--->|Cola de mensajes |--->| B |--->|Pantalla|  
+ ---      -----------------      ---      --------
+ 
+            
+            !!!ex19!!! 
+
+       ---              ---                  ---  
+   S->| C |            | A |             S->| B |
+       ---              ---                  ---
+       |     ------     | |     --------     | |     --------  
+       |--->|socket|--->| |--->|COLA MSJ|--->| |--->|pantalla|  
+             ------             --------             --------
+             
+            
+            !!!ex20!!! 
+
+ ---      --------------      ---      --------  
+|   |--->|cola mensajes |--->| B |--->|Pantalla|  
+| A |     --------------      ---      --------
+|   |     --------------      ---      --------  
+|   |--->| SOCKET STREAM|--->| C |--->|Pantalla|  
+ ---      --------------      ---      --------
+
+            
+            !!!ex21!!! 
+
+programa SOCKET CLIENTE datagramas (UDP): el cliente envia al socket lo que recibe por teclado
+y muestra en pantalla lo recibido en el socket: Servidor:--> datos rx socket
+ ---      --------------      ---      --------            
+            
+            !!!ex22!!! 
+            
+ ---      --------------      ---      --------  
+|   |--->|cola mensajes |--->| B |--->|Pantalla|  
+| A |     --------------      ---      --------
+|   |     --------------      ---      --------  
+|   |--->| SOCKET STREAM|--->| C |--->|Pantalla|  
+ ---      --------------      ---      --------
+
+            !!!ex23!!! 
+
+ ---
+|   |<------------------------------------------- SIGUSR1	
+|   | 												 |
+|   |     ---------     ---      --------------     ---      -------- 
+|   |--->|  FIFO  |--->| B |--->|socket STREAM|--->| C |--->|Pantalla|  
+| A |     ---------     ---      --------------     ---      --------
+|   |   			  cliente					  servidor
+|   |
+ ---    

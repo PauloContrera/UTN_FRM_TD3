@@ -1,0 +1,42 @@
+/--- Ruteo Estátito ---/
+
+POR PUERTO: Previo configurar interfaz, dirección ip, gateway y netmask de cada red.
+
+Configuración routers
+
+Router> enable
+Router# config terminal
+Router(config)# ip route <Direccion IP red> <Netmask> <Puerto conectado>
+Router(config)# exit
+
+POR DIRECCIÓN IP: Previo configurar interfaz, dirección ip, gateway y netmask de cada red.
+
+Configuración routers
+
+Router> enable
+Router# config terminal
+Router(config)# ip route <Dirección IP red> <Netmask> <Dirección IP siguiente salto>
+Router(config)# exit
+
+POR DEFECTO (PUERTO):
+
+Configuración routers
+
+Router> enable
+Router# config terminal
+Router(config)# ip route 0.0.0.0 0.0.0.0 <Puerto al que se conecta el router>
+Router(config)# exit
+
+POR DEFECTO (IP):
+
+Configuración routers
+
+Router> enable
+Router# config terminal
+Router(config)# ip route 0.0.0.0 0.0.0.0 <Dirección IP siguiente salto>
+Router(config)# exit
+
+
+
+
+

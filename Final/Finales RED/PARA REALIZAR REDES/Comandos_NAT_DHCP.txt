@@ -1,0 +1,80 @@
+/--- NAT Dinámico ---/
+
+NAT dinamico en router
+
+Router> enable
+Router# config terminal
+Router(config)# ip nat pool <Nombre lista Nat> <Dirección IP Pública> <Dirección IP Pública> netmask <netmask red>
+Router(config)# access-list <> permit <Dirección IP Privada> <Wildcard>
+Router(config)# ip nat inside source list <> pool <Nombre lista Nat> overload
+Router(config)# interface <Nombre interfaz(fastethernet1/0)>
+Router(config-if)# ip nat inside
+Router(config-if)# exit
+Router(config)# interface <Nombre interfaz(fastethernet0/0)>
+Router(config-if)# ip nat outside
+Router(config-if)# exit
+
+NAT estatico en server
+
+SERVER> enable
+SERVER# config terminal
+SERVER(config)# ip nat inside source static <Direccion IP interna> <Direccion IP externa>
+SERVER(config)# interface <fastethernet1/0>
+SERVER(config-if)# ip nat inside
+SERVER(config-if)# exit
+SERVER(config)# interface <fastethernet0/0>
+SERVER(config-if)# ip nat outside
+SERVER(config-if)# exit
+
+/--- DHCP ---/
+
+Configuración servidor DHCP en router
+
+Router> enable
+Router# config terminal
+Router(config)# ip dhcp excluded-address <Rango de direcciones>
+Router(config)# ip dhcp pool <Nombre de la red>
+Router(dhcp-config)# network <Nommbre de la red> <Netmask>
+Router(dhcp-config)# default-router <Gateway>
+Router(dhcp-config)# dns-server <Dirección IP Pública>
+Router(dhcp-config)# exit
+
+Configuración servidor DHCP Linksys (Router WiFi)
+
+Configuración Interfaz Internet: DHCP
+(Se rellenan los campos)
+
+Configuración Interfaz LAN: Dirección IP Gateway
+
+En GUI > Setup:
+
+IP router:
+Habilitar servidor DHCP
+Guardar Configuración
+Direcci IP inicial
+Numero maximo de usuarios
+DNS estatico
+Guardar Configuración
+
+Configuración Servidor DHCP 
+
+Configurar el puerto del servidor DHCP
+
+En servidor > config > fastethernet0:
+
+Dirección IP
+Gateway
+Servidor DNS
+
+En servidor DHCP > servicios:
+
+Seleccionar DHCP > encender
+Pool name
+Gateway por defecto
+Servidor DNS
+Inicio de la dirección IP
+Mascara
+Numero maximo de usuarios
+Add y Save
+
+

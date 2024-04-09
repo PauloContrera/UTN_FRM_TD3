@@ -1,0 +1,5 @@
+https://labvirtual.webs.upv.es/ipcalc.html
+
+comando por consola: ipcalc 192.168.0.12/24
+
+https://subnetonline.com/pages/subnet-calculators/ipv4-wildcard-calculator.php para calcular wildcard

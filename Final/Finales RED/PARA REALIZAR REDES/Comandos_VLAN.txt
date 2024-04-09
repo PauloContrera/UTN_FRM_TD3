@@ -1,0 +1,35 @@
+/--- VLAN ---/
+Configurar en el switch el nombre de VLAN.
+
+Switch> enable
+Switch(config)# VLAN <Numero de la VLAN>
+Switch(config-vlan)# name <Nombre de la VLAN>
+Switch(config-vlan)# exit
+
+Asignación de puerto a VLAN.
+
+Switch> enable
+Switch# config terminal
+Switch(config)# interface <Nombre de la interfaz>
+Switch(config-if)# switchport access VLAN <Numero de la VLAN>
+Switch(config-if)# exit
+
+Asignación de Puerto (donde esta conectado el router) en modo trunk
+
+Switch> enable
+Switch# config terminal
+Switch(config)# interface <Nombre de la interfaz donde esta el router>
+Switch(config-if)# swit mode trunk
+Switch(config-if)# exit
+
+Configuracion Router (Como si existieran n router, uno para cada VLAN).
+
+Router> enable
+Router# config terminal
+Router(config)# interface <Nombre de la interfaz>
+Router(config-subif)# ip address <Direccion IP (Gateway)> <Netmask>
+Router(config-subif)# exit
+
+
+
+
