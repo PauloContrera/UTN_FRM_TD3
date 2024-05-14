@@ -1,5 +1,3 @@
-
-
 #include <errno.h>
 #include <fcntl.h>
 #include <mqueue.h>
@@ -17,37 +15,32 @@
 #include <sys/socket.h>
 #include <unistd.h>
 #include <wait.h>
-#include <arpa/inet.h> 
+#include <arpa/inet.h>
 
-void signal_handler(int signum) {
-    printf("entre");
- while(1) {  //lee del socket    
 int SockEscucha, sck_server, rx_socket, largo, cont;
 char buffer_rx[256];
 struct sockaddr_in struct_direccion={};
-     int len=sizeof(struct_direccion);
+
+void signal_handler(int signum) {
+
+  int len=sizeof(struct_direccion);
      rx_socket = recvfrom(SockEscucha, buffer_rx, sizeof (buffer_rx), 0,(struct sockaddr*)&struct_direccion,&len);            //recibe del socket 
 
      if (rx_socket>0) {
         write ( STDOUT_FILENO , "cliente:--> ", 12);      //escribe leyenda en pantalla
         write ( STDOUT_FILENO , buffer_rx, rx_socket);      //escribe lo leido del socket
         sendto(SockEscucha, buffer_rx, rx_socket, 0, (struct sockaddr *) &struct_direccion, sizeof(struct_direccion)) ;                  //envia al socket lo que recibio
-   close(sck_server); 
-        
-        exit(0);
-     }
- }
-}
 
-int SockEscucha, sck_server, rx_socket, largo, cont;
-char buffer_rx[256];
-struct sockaddr_in struct_direccion={};
+     }
+
+}
 
 int main(int argc, const char *argv[])      {
 
    if (argc != 2){
-       argv[1]="2000";
+       argv[1]="2011";
    } 
+         printf("Soy el Socket, pid: %d", getpid());
 
 
  //****************** 1 *******************//
@@ -76,25 +69,12 @@ int main(int argc, const char *argv[])      {
 
 //****************** 3 *******************//
 //-- servidor espera a recibir algo ---
-    pid_t pid = getpid();
-                printf("PID del Socket: %d\n", pid);
-                signal(SIGUSR2, signal_handler);
+    signal(SIGUSR2, signal_handler);
 
-  while(1) {  //lee del socket    
-int SockEscucha, sck_server, rx_socket, largo, cont;
-char buffer_rx[256];
-struct sockaddr_in struct_direccion={};
-     int len=sizeof(struct_direccion);
-     rx_socket = recvfrom(SockEscucha, buffer_rx, sizeof (buffer_rx), 0,(struct sockaddr*)&struct_direccion,&len);            //recibe del socket 
+   while(1) {  //lee del socket    
 
-     if (rx_socket>0) {
-        write ( STDOUT_FILENO , "cliente:--> ", 12);      //escribe leyenda en pantalla
-        write ( STDOUT_FILENO , buffer_rx, rx_socket);      //escribe lo leido del socket
-        sendto(SockEscucha, buffer_rx, rx_socket, 0, (struct sockaddr *) &struct_direccion, sizeof(struct_direccion)) ;                  //envia al socket lo que recibio
-   close(sck_server); 
-        
-        exit(0);
-     }
+     
+
  }
 
  //****************** 4 *******************//
